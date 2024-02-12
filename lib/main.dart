@@ -6,7 +6,7 @@ import 'tabs/New to you.dart';
 import 'tabs/Types of Testing.dart';
 import 'tabs/Types of databases.dart';
 import 'tabs/flutter development.dart';
-
+import 'package:gradient_outline/tab_text.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -25,8 +25,8 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
-
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -86,18 +86,40 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
                   )),
             ],
           )
-
         ],
-        bottom: TabBar( isScrollable: true,
-            controller: _tabController,
-            tabs: [
-          Tab(text: 'All'),
-          Tab(text: 'New to you'),
-          Tab(text: 'flutter development'),
-          Tab(text: 'Backend development'),
-          Tab(text: 'Types of databases'),
-          Tab(text: 'About Devops'),
-          Tab(text: 'Types of Testing'),
+        bottom: TabBar(
+            indicator: BoxDecoration(
+                gradient: LinearGradient(colors: [
+                  Color.fromARGB(80, 164, 214, 240),
+                  Color.fromARGB(122, 231, 172, 240),
+                ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.centerRight
+                ),
+              borderRadius: BorderRadius.circular(15.0),
+              border: Border.all(
+                width: 2.0,
+                color: Color.fromARGB(45, 140, 45, 195),
+                style: BorderStyle.solid,
+              ),
+            ),
+           indicatorColor: Colors.black,
+            labelColor: Colors.black,
+            labelStyle: TextStyle(
+              fontSize: 15.0,
+              fontWeight: FontWeight.bold,
+            ),
+            unselectedLabelColor: Colors.black,
+            unselectedLabelStyle: TextStyle(),
+            isScrollable: true,
+            controller: _tabController, tabs: const [
+          Tab(text: '  All  ' ),
+          Tab(text: '  New to you  '),
+          Tab(text: '  flutter development  '),
+          Tab(text: '  Backend development  '),
+          Tab(text: '  Types of databases  '),
+          Tab(text: '  About Devops  '),
+          Tab(text: '  Types of Testing  '),
         ]),
       ),
       body: TabBarView(
